@@ -1,6 +1,6 @@
 {
   "name": "@xectec/tokens",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Xectec design tokens — CSS variables and typed JS token object",
   "license": "UNLICENSED",
   "private": false,

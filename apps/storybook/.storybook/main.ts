@@ -10,7 +10,7 @@ const config: StorybookConfig = {
   stories: [
     {
       directory: uiPackageSrc,
-      files: "**/*.stories.@(ts|tsx|mdx)",
+      files: "**/*.@(stories.@(ts|tsx)|mdx)",
       titlePrefix: "",
     },
   ],
