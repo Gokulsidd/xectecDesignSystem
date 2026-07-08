@@ -62,8 +62,23 @@ const bodyFontSize = tokens.typography.fontSize.md;
 - Line Heights
 
 ### Spacing & Layout
-- Spacing: Pixel values and responsive aliases (`xs`, `sm`, `md`, `lg`, `xl`)
+- Spacing: Core spacer values (`0` to `24`, and responsive aliases `xs`, `sm`, `md`, `lg`, `xl`)
 - Corner Radius: `none`, `xs` to `3xl`, and `full`
 - Elevation Shadows: `xs` to `2xl`, and `inner`
 - Z-Index layers: `modal`, `overlay`, `toast`, etc.
 - Transitions: speed and spring easing presets
+
+### Component-Level Semantic Tokens & Layout Spacing
+- `components.button`: Sized paddings (`sm`/`md`/`lg`), colors, gaps, margins, and borders.
+- `components.input`: Padding sizing, colors, state indicators, and focus rings.
+- `components.card`: Dynamic padding levels, background surface, and elevation overlays.
+- `components.modal`: Overlay background, padding options, and shadow elevations.
+- `components.toast`: Variant configurations, icon spacing, border colors.
+- `components.sidebar` & `components.header`: Layout width, height, backgrounds.
+- `components.element`: General responsive padding, margin, and gap utility scales.
+
+---
+
+## 📖 Discovery & Documentation
+Run `pnpm storybook` inside this repository to launch the interactive documentation page. Under **Design System/Design Tokens**, you will find visual swatches, sizes, layout spacing tables, and interactive variables listings.
+

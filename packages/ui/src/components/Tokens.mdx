@@ -1,0 +1,181 @@
+import { Meta } from '@storybook/blocks';
+import { tokens } from '@xectec/tokens';
+
+<Meta title="Design System/Design Tokens" />
+
+# Design System Tokens
+
+Welcome to the **Xectec Design System** token registry. This catalog is generated dynamically from the core token package. Developers can use these design tokens via:
+1. **CSS Variables** (e.g., `var(--color-primary-600)`, `var(--spacing-button-padding-x-md)`)
+2. **TypeScript / JavaScript** (e.g., `tokens.colors.primary[600]`, `tokens.components.button.spacing.paddingX.md`)
+
+---
+
+## 🎨 Color Scales
+
+Hover over any color swatch to see its TypeScript reference path and hexadecimal value.
+
+### Primary Scale
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '16px', marginTop: '16px' }}>
+  {Object.entries(tokens.colors.primary).map(([key, val]) => (
+    <div key={key} style={{ display: 'flex', flexDirection: 'column', borderRadius: '8px', border: '1px solid #e2e8f0', overflow: 'hidden' }}>
+      <div style={{ backgroundColor: val, height: '60px' }} />
+      <div style={{ padding: '8px 12px', fontSize: '12px' }}>
+        <strong>primary.{key}</strong>
+        <div style={{ color: '#64748b', fontFamily: 'monospace', fontSize: '11px', marginTop: '2px' }}>{val}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+### Secondary Scale
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '16px', marginTop: '16px' }}>
+  {Object.entries(tokens.colors.secondary).map(([key, val]) => (
+    <div key={key} style={{ display: 'flex', flexDirection: 'column', borderRadius: '8px', border: '1px solid #e2e8f0', overflow: 'hidden' }}>
+      <div style={{ backgroundColor: val, height: '60px' }} />
+      <div style={{ padding: '8px 12px', fontSize: '12px' }}>
+        <strong>secondary.{key}</strong>
+        <div style={{ color: '#64748b', fontFamily: 'monospace', fontSize: '11px', marginTop: '2px' }}>{val}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+### Neutral Scale
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '16px', marginTop: '16px' }}>
+  {Object.entries(tokens.colors.neutral).map(([key, val]) => (
+    <div key={key} style={{ display: 'flex', flexDirection: 'column', borderRadius: '8px', border: '1px solid #e2e8f0', overflow: 'hidden' }}>
+      <div style={{ backgroundColor: val, height: '60px' }} />
+      <div style={{ padding: '8px 12px', fontSize: '12px' }}>
+        <strong>neutral.{key}</strong>
+        <div style={{ color: '#64748b', fontFamily: 'monospace', fontSize: '11px', marginTop: '2px' }}>{val}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+### Semantic System Colors
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '16px', marginTop: '16px', marginBottom: '32px' }}>
+  <div style={{ display: 'flex', flexDirection: 'column', borderRadius: '8px', border: '1px solid #e2e8f0', overflow: 'hidden' }}>
+    <div style={{ backgroundColor: tokens.colors.success.DEFAULT, height: '60px' }} />
+    <div style={{ padding: '8px 12px', fontSize: '12px' }}>
+      <strong>success.DEFAULT</strong>
+      <div style={{ color: '#64748b', fontFamily: 'monospace', fontSize: '11px', marginTop: '2px' }}>{tokens.colors.success.DEFAULT}</div>
+    </div>
+  </div>
+  <div style={{ display: 'flex', flexDirection: 'column', borderRadius: '8px', border: '1px solid #e2e8f0', overflow: 'hidden' }}>
+    <div style={{ backgroundColor: tokens.colors.warning.DEFAULT, height: '60px' }} />
+    <div style={{ padding: '8px 12px', fontSize: '12px' }}>
+      <strong>warning.DEFAULT</strong>
+      <div style={{ color: '#64748b', fontFamily: 'monospace', fontSize: '11px', marginTop: '2px' }}>{tokens.colors.warning.DEFAULT}</div>
+    </div>
+  </div>
+  <div style={{ display: 'flex', flexDirection: 'column', borderRadius: '8px', border: '1px solid #e2e8f0', overflow: 'hidden' }}>
+    <div style={{ backgroundColor: tokens.colors.error.DEFAULT, height: '60px' }} />
+    <div style={{ padding: '8px 12px', fontSize: '12px' }}>
+      <strong>error.DEFAULT</strong>
+      <div style={{ color: '#64748b', fontFamily: 'monospace', fontSize: '11px', marginTop: '2px' }}>{tokens.colors.error.DEFAULT}</div>
+    </div>
+  </div>
+</div>
+
+---
+
+## 📏 Layout & Element Spacing
+
+Use these tokens for padding, margin, flexbox gaps, or grid spacing.
+
+<table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '16px', marginBottom: '32px' }}>
+  <thead>
+    <tr style={{ textAlign: 'left', borderBottom: '2px solid #cbd5e1' }}>
+      <th style={{ padding: '12px 8px' }}>Token Key</th>
+      <th style={{ padding: '12px 8px' }}>CSS Variable</th>
+      <th style={{ padding: '12px 8px' }}>Value</th>
+      <th style={{ padding: '12px 8px' }}>Visual Indicator</th>
+    </tr>
+  </thead>
+  <tbody>
+    {Object.entries(tokens.spacing).map(([key, val]) => (
+      <tr key={key} style={{ borderBottom: '1px solid #e2e8f0' }}>
+        <td style={{ padding: '12px 8px', fontWeight: 'bold' }}>spacing.{key}</td>
+        <td style={{ padding: '12px 8px', fontFamily: 'monospace', fontSize: '13px' }}>--spacing-{key.replace('.', '-')}</td>
+        <td style={{ padding: '12px 8px', fontFamily: 'monospace' }}>{val}</td>
+        <td style={{ padding: '12px 8px' }}>
+          <div style={{ height: '8px', width: val === '0' ? '0' : val, backgroundColor: '#3b82f6', borderRadius: '2px' }} />
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+---
+
+## 🧩 Component Spacing & Color Overrides
+
+These tokens are mapped to specific component requirements, allowing developers to set uniform layouts and structures.
+
+### Button Spacing
+* **Small Button**: `padding: var(--spacing-button-padding-y-sm) var(--spacing-button-padding-x-sm)`
+* **Medium Button (Default)**: `padding: var(--spacing-button-padding-y-md) var(--spacing-button-padding-x-md)`
+* **Large Button**: `padding: var(--spacing-button-padding-y-lg) var(--spacing-button-padding-x-lg)`
+* **Icon to Text Gap**: `gap: var(--spacing-button-gap)`
+
+### Card Padding Options
+* **Small Card**: `padding: var(--spacing-card-padding-sm)` (12px)
+* **Medium Card**: `padding: var(--spacing-card-padding-md)` (20px)
+* **Large Card**: `padding: var(--spacing-card-padding-lg)` (32px)
+
+### Input Field Paddings
+* **Small Field**: `padding: var(--spacing-input-padding-y-sm) var(--spacing-input-padding-x-sm)`
+* **Medium Field**: `padding: var(--spacing-input-padding-y-md) var(--spacing-input-padding-x-md)`
+* **Large Field**: `padding: var(--spacing-input-padding-y-lg) var(--spacing-input-padding-x-lg)`
+
+---
+
+## 🛡️ Radius & Elevation (Shadows)
+
+### Border Radius Options
+<table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '16px', marginBottom: '32px' }}>
+  <thead>
+    <tr style={{ textAlign: 'left', borderBottom: '2px solid #cbd5e1' }}>
+      <th style={{ padding: '12px 8px' }}>Token Key</th>
+      <th style={{ padding: '12px 8px' }}>CSS Variable</th>
+      <th style={{ padding: '12px 8px' }}>Value</th>
+      <th style={{ padding: '12px 8px' }}>Preview</th>
+    </tr>
+  </thead>
+  <tbody>
+    {Object.entries(tokens.radius).map(([key, val]) => (
+      <tr key={key} style={{ borderBottom: '1px solid #e2e8f0' }}>
+        <td style={{ padding: '12px 8px', fontWeight: 'bold' }}>radius.{key}</td>
+        <td style={{ padding: '12px 8px', fontFamily: 'monospace', fontSize: '13px' }}>--radius-{key}</td>
+        <td style={{ padding: '12px 8px', fontFamily: 'monospace' }}>{val}</td>
+        <td style={{ padding: '12px 8px' }}>
+          <div style={{ height: '40px', width: '60px', border: '1px solid #64748b', borderRadius: val, backgroundColor: '#f1f5f9' }} />
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+### Elevation / Box Shadows
+<table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '16px', marginBottom: '32px' }}>
+  <thead>
+    <tr style={{ textAlign: 'left', borderBottom: '2px solid #cbd5e1' }}>
+      <th style={{ padding: '12px 8px' }}>Token Key</th>
+      <th style={{ padding: '12px 8px' }}>CSS Variable</th>
+      <th style={{ padding: '12px 8px' }}>Preview Box</th>
+    </tr>
+  </thead>
+  <tbody>
+    {Object.entries(tokens.shadows).map(([key, val]) => (
+      <tr key={key} style={{ borderBottom: '1px solid #e2e8f0' }}>
+        <td style={{ padding: '12px 8px', fontWeight: 'bold' }}>shadows.{key}</td>
+        <td style={{ padding: '12px 8px', fontFamily: 'monospace', fontSize: '13px' }}>--shadow-{key}</td>
+        <td style={{ padding: '12px 8px' }}>
+          <div style={{ height: '36px', width: '120px', borderRadius: '6px', boxShadow: val, backgroundColor: '#ffffff', border: key === 'none' ? '1px dashed #cbd5e1' : 'none' }} />
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>

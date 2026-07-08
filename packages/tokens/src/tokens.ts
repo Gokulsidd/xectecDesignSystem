@@ -205,8 +205,245 @@ export const tokens = {
     slow: "300ms ease",
     spring: "300ms cubic-bezier(0.34, 1.56, 0.64, 1)",
   },
+
+  components: {
+    button: {
+      radius: "var(--radius-button)",
+      fontWeight: "var(--font-weight-button)",
+      transition: "var(--transition-button)",
+      spacing: {
+        paddingX: {
+          sm: "var(--spacing-button-padding-x-sm)",
+          md: "var(--spacing-button-padding-x-md)",
+          lg: "var(--spacing-button-padding-x-lg)",
+        },
+        paddingY: {
+          sm: "var(--spacing-button-padding-y-sm)",
+          md: "var(--spacing-button-padding-y-md)",
+          lg: "var(--spacing-button-padding-y-lg)",
+        },
+        gap: "var(--spacing-button-gap)",
+        marginX: "var(--spacing-button-margin-x)",
+        marginY: "var(--spacing-button-margin-y)",
+      },
+      primary: {
+        bg: "var(--color-button-primary-bg)",
+        bgHover: "var(--color-button-primary-bg-hover)",
+        bgActive: "var(--color-button-primary-bg-active)",
+        text: "var(--color-button-primary-text)",
+        border: "var(--color-button-primary-border)",
+      },
+      secondary: {
+        bg: "var(--color-button-secondary-bg)",
+        bgHover: "var(--color-button-secondary-bg-hover)",
+        bgActive: "var(--color-button-secondary-bg-active)",
+        text: "var(--color-button-secondary-text)",
+        border: "var(--color-button-secondary-border)",
+      },
+      outline: {
+        bg: "var(--color-button-outline-bg)",
+        bgHover: "var(--color-button-outline-bg-hover)",
+        bgActive: "var(--color-button-outline-bg-active)",
+        text: "var(--color-button-outline-text)",
+        border: "var(--color-button-outline-border)",
+      },
+      ghost: {
+        bg: "var(--color-button-ghost-bg)",
+        bgHover: "var(--color-button-ghost-bg-hover)",
+        bgActive: "var(--color-button-ghost-bg-active)",
+        text: "var(--color-button-ghost-text)",
+        border: "var(--color-button-ghost-border)",
+      },
+      danger: {
+        bg: "var(--color-button-danger-bg)",
+        bgHover: "var(--color-button-danger-bg-hover)",
+        bgActive: "var(--color-button-danger-bg-active)",
+        text: "var(--color-button-danger-text)",
+        border: "var(--color-button-danger-border)",
+      },
+      disabled: {
+        bg: "var(--color-button-disabled-bg)",
+        text: "var(--color-button-disabled-text)",
+        border: "var(--color-button-disabled-border)",
+      },
+    },
+    input: {
+      radius: "var(--radius-input)",
+      spacing: {
+        paddingX: {
+          sm: "var(--spacing-input-padding-x-sm)",
+          md: "var(--spacing-input-padding-x-md)",
+          lg: "var(--spacing-input-padding-x-lg)",
+        },
+        paddingY: {
+          sm: "var(--spacing-input-padding-y-sm)",
+          md: "var(--spacing-input-padding-y-md)",
+          lg: "var(--spacing-input-padding-y-lg)",
+        },
+        gap: "var(--spacing-input-gap)",
+      },
+      bg: "var(--color-input-bg)",
+      text: "var(--color-input-text)",
+      placeholder: "var(--color-input-placeholder)",
+      border: "var(--color-input-border)",
+      borderHover: "var(--color-input-border-hover)",
+      borderFocus: "var(--color-input-border-focus)",
+      focusRing: "var(--color-input-focus-ring)",
+      disabledBg: "var(--color-input-disabled-bg)",
+      disabledText: "var(--color-input-disabled-text)",
+      disabledBorder: "var(--color-input-disabled-border)",
+      success: {
+        border: "var(--color-input-success-border)",
+        focusRing: "var(--color-input-success-focus-ring)",
+      },
+      error: {
+        border: "var(--color-input-error-border)",
+        focusRing: "var(--color-input-error-focus-ring)",
+      },
+    },
+    card: {
+      radius: "var(--radius-card)",
+      spacing: {
+        padding: {
+          sm: "var(--spacing-card-padding-sm)",
+          md: "var(--spacing-card-padding-md)",
+          lg: "var(--spacing-card-padding-lg)",
+        },
+        gap: "var(--spacing-card-gap)",
+      },
+      bg: "var(--color-card-bg)",
+      border: "var(--color-card-border)",
+      headerBorder: "var(--color-card-header-border)",
+      footerBorder: "var(--color-card-footer-border)",
+      shadow: {
+        flat: "var(--shadow-card-flat)",
+        raised: "var(--shadow-card-raised)",
+        floating: "var(--shadow-card-floating)",
+      },
+    },
+    modal: {
+      radius: "var(--radius-modal)",
+      spacing: {
+        padding: {
+          sm: "var(--spacing-modal-padding-sm)",
+          md: "var(--spacing-modal-padding-md)",
+          lg: "var(--spacing-modal-padding-lg)",
+        },
+        gap: "var(--spacing-modal-gap)",
+      },
+      bg: "var(--color-modal-bg)",
+      border: "var(--color-modal-border)",
+      headerBorder: "var(--color-modal-header-border)",
+      footerBorder: "var(--color-modal-footer-border)",
+      overlay: "var(--color-modal-overlay)",
+      shadow: "var(--shadow-modal)",
+    },
+    toast: {
+      radius: "var(--radius-toast)",
+      shadow: "var(--shadow-toast)",
+      spacing: {
+        padding: "var(--spacing-toast-padding)",
+        gap: "var(--spacing-toast-gap)",
+      },
+      info: {
+        bg: "var(--color-toast-info-bg)",
+        border: "var(--color-toast-info-border)",
+        text: "var(--color-toast-info-text)",
+        icon: "var(--color-toast-info-icon)",
+      },
+      success: {
+        bg: "var(--color-toast-success-bg)",
+        border: "var(--color-toast-success-border)",
+        text: "var(--color-toast-success-text)",
+        icon: "var(--color-toast-success-icon)",
+      },
+      warning: {
+        bg: "var(--color-toast-warning-bg)",
+        border: "var(--color-toast-warning-border)",
+        text: "var(--color-toast-warning-text)",
+        icon: "var(--color-toast-warning-icon)",
+      },
+      error: {
+        bg: "var(--color-toast-error-bg)",
+        border: "var(--color-toast-error-border)",
+        text: "var(--color-toast-error-text)",
+        icon: "var(--color-toast-error-icon)",
+      },
+    },
+    sidebar: {
+      width: "var(--width-sidebar)",
+      widthCollapsed: "var(--width-sidebar-collapsed)",
+      spacing: {
+        padding: "var(--spacing-sidebar-padding)",
+        gap: "var(--spacing-sidebar-gap)",
+      },
+      bg: "var(--color-sidebar-bg)",
+      border: "var(--color-sidebar-border)",
+      text: "var(--color-sidebar-text)",
+      textActive: "var(--color-sidebar-text-active)",
+      itemHover: "var(--color-sidebar-item-hover)",
+      itemActive: "var(--color-sidebar-item-active)",
+    },
+    header: {
+      height: "var(--height-header)",
+      bg: "var(--color-header-bg)",
+      border: "var(--color-header-border)",
+    },
+    scrollbar: {
+      track: "var(--color-scrollbar-track)",
+      thumb: "var(--color-scrollbar-thumb)",
+      thumbHover: "var(--color-scrollbar-thumb-hover)",
+    },
+    badge: {
+      radius: "var(--radius-badge)",
+      default: {
+        bg: "var(--color-badge-default-bg)",
+        text: "var(--color-badge-default-text)",
+        border: "var(--color-badge-default-border)",
+      },
+      success: {
+        bg: "var(--color-badge-success-bg)",
+        text: "var(--color-badge-success-text)",
+        border: "var(--color-badge-success-border)",
+      },
+      warning: {
+        bg: "var(--color-badge-warning-bg)",
+        text: "var(--color-badge-warning-text)",
+        border: "var(--color-badge-warning-border)",
+      },
+      error: {
+        bg: "var(--color-badge-error-bg)",
+        text: "var(--color-badge-error-text)",
+        border: "var(--color-badge-error-border)",
+      },
+    },
+    element: {
+      padding: {
+        xs: "var(--spacing-element-padding-xs)",
+        sm: "var(--spacing-element-padding-sm)",
+        md: "var(--spacing-element-padding-md)",
+        lg: "var(--spacing-element-padding-lg)",
+        xl: "var(--spacing-element-padding-xl)",
+      },
+      margin: {
+        xs: "var(--spacing-element-margin-xs)",
+        sm: "var(--spacing-element-margin-sm)",
+        md: "var(--spacing-element-margin-md)",
+        lg: "var(--spacing-element-margin-lg)",
+        xl: "var(--spacing-element-margin-xl)",
+      },
+      gap: {
+        xs: "var(--spacing-element-gap-xs)",
+        sm: "var(--spacing-element-gap-sm)",
+        md: "var(--spacing-element-gap-md)",
+        lg: "var(--spacing-element-gap-lg)",
+        xl: "var(--spacing-element-gap-xl)",
+      },
+    },
+  },
 } as const;
 
 export type Tokens = typeof tokens;
 export type ColorScale = typeof tokens.colors.primary;
 export type SpacingScale = typeof tokens.spacing;
+export type ComponentTokens = typeof tokens.components;

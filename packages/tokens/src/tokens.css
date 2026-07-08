@@ -7,6 +7,8 @@
  * Dark mode: Add data-theme="dark" to the <html> element.
  */
 
+
+
 /* ============================================================
    LIGHT THEME (DEFAULT)
    ============================================================ */
@@ -261,6 +263,241 @@
   --transition-base: 150ms ease;
   --transition-slow: 300ms ease;
   --transition-spring: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ============================================================
+     BUTTONS (Component-level semantic variables)
+     ============================================================ */
+  /* Button - Common */
+  --radius-button: var(--radius-md);
+  --font-weight-button: var(--font-weight-semibold);
+  --transition-button: var(--transition-base);
+
+  /* Button Spacing */
+  --spacing-button-padding-x-sm: var(--spacing-3);     /* 12px */
+  --spacing-button-padding-y-sm: var(--spacing-1-5);   /* 6px */
+  --spacing-button-padding-x-md: var(--spacing-4);     /* 16px */
+  --spacing-button-padding-y-md: var(--spacing-2);     /* 8px */
+  --spacing-button-padding-x-lg: var(--spacing-6);     /* 24px */
+  --spacing-button-padding-y-lg: var(--spacing-3);     /* 12px */
+  --spacing-button-gap: var(--spacing-2);               /* 8px - icon to text */
+  --spacing-button-margin-y: var(--spacing-0);
+  --spacing-button-margin-x: var(--spacing-0);
+
+  /* Button - Primary Colors */
+  --color-button-primary-bg: var(--color-primary-600);
+  --color-button-primary-bg-hover: var(--color-primary-700);
+  --color-button-primary-bg-active: var(--color-primary-800);
+  --color-button-primary-text: var(--color-neutral-0);
+  --color-button-primary-border: transparent;
+
+  /* Button - Secondary Colors */
+  --color-button-secondary-bg: var(--color-neutral-100);
+  --color-button-secondary-bg-hover: var(--color-neutral-200);
+  --color-button-secondary-bg-active: var(--color-neutral-300);
+  --color-button-secondary-text: var(--color-neutral-800);
+  --color-button-secondary-border: var(--color-neutral-300);
+
+  /* Button - Outline Colors */
+  --color-button-outline-bg: transparent;
+  --color-button-outline-bg-hover: var(--color-neutral-100);
+  --color-button-outline-bg-active: var(--color-neutral-200);
+  --color-button-outline-text: var(--color-neutral-800);
+  --color-button-outline-border: var(--color-neutral-300);
+
+  /* Button - Ghost Colors */
+  --color-button-ghost-bg: transparent;
+  --color-button-ghost-bg-hover: var(--color-neutral-100);
+  --color-button-ghost-bg-active: var(--color-neutral-200);
+  --color-button-ghost-text: var(--color-neutral-700);
+  --color-button-ghost-border: transparent;
+
+  /* Button - Danger Colors */
+  --color-button-danger-bg: var(--color-error-600);
+  --color-button-danger-bg-hover: var(--color-error-700);
+  --color-button-danger-bg-active: var(--color-error-800);
+  --color-button-danger-text: var(--color-neutral-0);
+  --color-button-danger-border: transparent;
+
+  /* Button - Disabled Colors */
+  --color-button-disabled-bg: var(--color-neutral-100);
+  --color-button-disabled-text: var(--color-neutral-400);
+  --color-button-disabled-border: transparent;
+
+  /* ============================================================
+     FORMS & INPUTS (Component-level semantic variables)
+     ============================================================ */
+  --radius-input: var(--radius-md);
+  
+  /* Input Spacing */
+  --spacing-input-padding-x-sm: var(--spacing-2-5);   /* 10px */
+  --spacing-input-padding-y-sm: var(--spacing-1-5);   /* 6px */
+  --spacing-input-padding-x-md: var(--spacing-4);     /* 16px */
+  --spacing-input-padding-y-md: var(--spacing-2-5);   /* 10px */
+  --spacing-input-padding-x-lg: var(--spacing-5);     /* 20px */
+  --spacing-input-padding-y-lg: var(--spacing-3);     /* 12px */
+  --spacing-input-gap: var(--spacing-1-5);             /* 6px - label to field */
+
+  /* Input Colors */
+  --color-input-bg: var(--color-neutral-0);
+  --color-input-text: var(--color-neutral-900);
+  --color-input-placeholder: var(--color-neutral-400);
+  --color-input-border: var(--color-neutral-300);
+  --color-input-border-hover: var(--color-neutral-400);
+  --color-input-border-focus: var(--color-primary-500);
+  --color-input-focus-ring: var(--color-primary-100);
+  --color-input-disabled-bg: var(--color-neutral-50);
+  --color-input-disabled-text: var(--color-neutral-400);
+  --color-input-disabled-border: var(--color-neutral-200);
+
+  /* Input States Colors */
+  --color-input-success-border: var(--color-success-500);
+  --color-input-success-focus-ring: var(--color-success-100);
+  --color-input-error-border: var(--color-error-500);
+  --color-input-error-focus-ring: var(--color-error-100);
+
+  /* ============================================================
+     SURFACES & CARDS (Component-level semantic variables)
+     ============================================================ */
+  --radius-card: var(--radius-lg);
+  
+  /* Card Spacing */
+  --spacing-card-padding-sm: var(--spacing-3);        /* 12px */
+  --spacing-card-padding-md: var(--spacing-5);        /* 20px */
+  --spacing-card-padding-lg: var(--spacing-8);        /* 32px */
+  --spacing-card-gap: var(--spacing-4);               /* 16px */
+
+  /* Card Colors */
+  --color-card-bg: var(--color-neutral-0);
+  --color-card-border: var(--color-neutral-200);
+  --color-card-header-border: var(--color-neutral-100);
+  --color-card-footer-border: var(--color-neutral-100);
+  --shadow-card-flat: var(--shadow-none);
+  --shadow-card-raised: var(--shadow-sm);
+  --shadow-card-floating: var(--shadow-md);
+
+  /* ============================================================
+     MODALS & DIALOGS (Component-level semantic variables)
+     ============================================================ */
+  --radius-modal: var(--radius-xl);
+  
+  /* Modal Spacing */
+  --spacing-modal-padding-sm: var(--spacing-4);       /* 16px */
+  --spacing-modal-padding-md: var(--spacing-6);       /* 24px */
+  --spacing-modal-padding-lg: var(--spacing-8);       /* 32px */
+  --spacing-modal-gap: var(--spacing-4);               /* 16px */
+
+  /* Modal Colors */
+  --color-modal-bg: var(--color-neutral-0);
+  --color-modal-border: var(--color-neutral-200);
+  --color-modal-header-border: var(--color-neutral-100);
+  --color-modal-footer-border: var(--color-neutral-100);
+  --color-modal-overlay: rgba(15, 23, 42, 0.6);
+  --shadow-modal: var(--shadow-xl);
+
+  /* ============================================================
+     TOASTS & NOTIFICATIONS (Component-level semantic variables)
+     ============================================================ */
+  --radius-toast: var(--radius-lg);
+  --shadow-toast: var(--shadow-lg);
+
+  /* Toast Spacing */
+  --spacing-toast-padding: var(--spacing-4);          /* 16px */
+  --spacing-toast-gap: var(--spacing-3);              /* 12px */
+
+  /* Toast Variants Colors */
+  --color-toast-info-bg: var(--color-neutral-0);
+  --color-toast-info-border: var(--color-neutral-200);
+  --color-toast-info-text: var(--color-toast-info-text, var(--color-neutral-900));
+  --color-toast-info-icon: var(--color-primary-500);
+
+  --color-toast-success-bg: var(--color-success-50);
+  --color-toast-success-border: var(--color-success-200);
+  --color-toast-success-text: var(--color-success-900);
+  --color-toast-success-icon: var(--color-success-500);
+
+  --color-toast-warning-bg: var(--color-warning-50);
+  --color-toast-warning-border: var(--color-warning-200);
+  --color-toast-warning-text: var(--color-warning-900);
+  --color-toast-warning-icon: var(--color-warning-600);
+
+  --color-toast-error-bg: var(--color-error-50);
+  --color-toast-error-border: var(--color-error-200);
+  --color-toast-error-text: var(--color-error-900);
+  --color-toast-error-icon: var(--color-error-600);
+
+  /* ============================================================
+     SIDEBARS, HEADERS & SCROLLBARS (Component-level semantic variables)
+     ============================================================ */
+  /* Sidebar Sizing & Spacing */
+  --width-sidebar: 16.25rem;                            /* 260px */
+  --width-sidebar-collapsed: 4.5rem;                  /* 72px */
+  --spacing-sidebar-padding: var(--spacing-3);
+  --spacing-sidebar-gap: var(--spacing-1);
+
+  /* Sidebar Colors */
+  --color-sidebar-bg: var(--color-neutral-50);
+  --color-sidebar-border: var(--color-neutral-200);
+  --color-sidebar-text: var(--color-neutral-700);
+  --color-sidebar-text-active: var(--color-primary-600);
+  --color-sidebar-item-hover: var(--color-neutral-100);
+  --color-sidebar-item-active: var(--color-primary-50);
+
+  /* Header Navbar Sizing & Spacing */
+  --height-header: 4rem;                               /* 64px */
+
+  /* Header Colors */
+  --color-header-bg: var(--color-neutral-0);
+  --color-header-border: var(--color-neutral-200);
+
+  /* Scrollbars Colors & Sizing */
+  --color-scrollbar-track: var(--color-neutral-50);
+  --color-scrollbar-thumb: var(--color-neutral-300);
+  --color-scrollbar-thumb-hover: var(--color-neutral-400);
+
+  /* ============================================================
+     BADGES / ALERTS (Component-level semantic variables)
+     ============================================================ */
+  --radius-badge: var(--radius-full);
+  
+  --color-badge-default-bg: var(--color-neutral-100);
+  --color-badge-default-text: var(--color-neutral-800);
+  --color-badge-default-border: var(--color-neutral-200);
+
+  --color-badge-success-bg: var(--color-success-100);
+  --color-badge-success-text: var(--color-success-900);
+  --color-badge-success-border: var(--color-success-200);
+
+  --color-badge-warning-bg: var(--color-warning-100);
+  --color-badge-warning-text: var(--color-warning-900);
+  --color-badge-warning-border: var(--color-warning-200);
+
+  --color-badge-error-bg: var(--color-error-100);
+  --color-badge-error-text: var(--color-error-900);
+  --color-badge-error-border: var(--color-error-200);
+
+  /* ============================================================
+     GENERAL ELEMENT SPACING (Component-level semantic variables)
+     ============================================================ */
+  /* Padding Utilities */
+  --spacing-element-padding-xs: var(--spacing-1);       /* 4px */
+  --spacing-element-padding-sm: var(--spacing-2);       /* 8px */
+  --spacing-element-padding-md: var(--spacing-4);       /* 16px */
+  --spacing-element-padding-lg: var(--spacing-6);       /* 24px */
+  --spacing-element-padding-xl: var(--spacing-8);       /* 32px */
+
+  /* Margin Utilities */
+  --spacing-element-margin-xs: var(--spacing-1);
+  --spacing-element-margin-sm: var(--spacing-2);
+  --spacing-element-margin-md: var(--spacing-4);
+  --spacing-element-margin-lg: var(--spacing-6);
+  --spacing-element-margin-xl: var(--spacing-8);
+
+  /* Layout Container Gap Utilities */
+  --spacing-element-gap-xs: var(--spacing-1);
+  --spacing-element-gap-sm: var(--spacing-2);
+  --spacing-element-gap-md: var(--spacing-4);
+  --spacing-element-gap-lg: var(--spacing-6);
+  --spacing-element-gap-xl: var(--spacing-8);
 }
 
 /* ============================================================
@@ -321,4 +558,113 @@
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+
+  /* ============================================================
+     COMPONENT OVERRIDES - DARK MODE
+     ============================================================ */
+  /* Buttons - Dark Mode */
+  --color-button-primary-bg: var(--color-primary-500);
+  --color-button-primary-bg-hover: var(--color-primary-400);
+  --color-button-primary-bg-active: var(--color-primary-300);
+  --color-button-primary-text: var(--color-neutral-955, var(--color-neutral-950));
+
+  --color-button-secondary-bg: var(--color-neutral-800);
+  --color-button-secondary-bg-hover: var(--color-neutral-700);
+  --color-button-secondary-bg-active: var(--color-neutral-600);
+  --color-button-secondary-text: var(--color-neutral-100);
+  --color-button-secondary-border: var(--color-neutral-700);
+
+  --color-button-outline-bg-hover: var(--color-neutral-800);
+  --color-button-outline-bg-active: var(--color-neutral-700);
+  --color-button-outline-text: var(--color-neutral-200);
+  --color-button-outline-border: var(--color-neutral-700);
+
+  --color-button-ghost-bg-hover: var(--color-neutral-800);
+  --color-button-ghost-bg-active: var(--color-neutral-700);
+  --color-button-ghost-text: var(--color-neutral-300);
+
+  --color-button-danger-bg: var(--color-error-500);
+  --color-button-danger-bg-hover: var(--color-error-400);
+  --color-button-danger-bg-active: var(--color-error-300);
+  --color-button-danger-text: var(--color-neutral-950);
+
+  --color-button-disabled-bg: var(--color-neutral-800);
+  --color-button-disabled-text: var(--color-neutral-500);
+
+  /* Forms & Inputs - Dark Mode */
+  --color-input-bg: var(--color-neutral-900);
+  --color-input-text: var(--color-neutral-50);
+  --color-input-placeholder: var(--color-neutral-500);
+  --color-input-border: var(--color-neutral-700);
+  --color-input-border-hover: var(--color-neutral-600);
+  --color-input-border-focus: var(--color-primary-500);
+  --color-input-focus-ring: var(--color-primary-950);
+  --color-input-disabled-bg: var(--color-neutral-955, var(--color-neutral-950));
+  --color-input-disabled-text: var(--color-neutral-500);
+  --color-input-disabled-border: var(--color-neutral-800);
+
+  --color-input-success-focus-ring: rgba(16, 185, 129, 0.15);
+  --color-input-error-focus-ring: rgba(244, 63, 94, 0.15);
+
+  /* Surfaces & Cards - Dark Mode */
+  --color-card-bg: var(--color-neutral-900);
+  --color-card-border: var(--color-neutral-800);
+  --color-card-header-border: var(--color-neutral-800);
+  --color-card-footer-border: var(--color-neutral-800);
+
+  /* Modals - Dark Mode */
+  --color-modal-bg: var(--color-neutral-900);
+  --color-modal-border: var(--color-neutral-800);
+  --color-modal-header-border: var(--color-neutral-800);
+  --color-modal-footer-border: var(--color-neutral-800);
+  --color-modal-overlay: rgba(0, 0, 0, 0.75);
+
+  /* Toasts - Dark Mode */
+  --color-toast-info-bg: var(--color-neutral-900);
+  --color-toast-info-border: var(--color-neutral-800);
+  --color-toast-info-text: var(--color-neutral-50);
+
+  --color-toast-success-bg: var(--color-neutral-900);
+  --color-toast-success-border: rgba(16, 185, 129, 0.2);
+  --color-toast-success-text: var(--color-neutral-50);
+
+  --color-toast-warning-bg: var(--color-neutral-900);
+  --color-toast-warning-border: rgba(245, 158, 11, 0.2);
+  --color-toast-warning-text: var(--color-neutral-50);
+
+  --color-toast-error-bg: var(--color-neutral-900);
+  --color-toast-error-border: rgba(244, 63, 94, 0.2);
+  --color-toast-error-text: var(--color-neutral-50);
+
+  /* Sidebar, Header, Scrollbars - Dark Mode */
+  --color-sidebar-bg: var(--color-neutral-955, var(--color-neutral-950));
+  --color-sidebar-border: var(--color-neutral-800);
+  --color-sidebar-text: var(--color-neutral-400);
+  --color-sidebar-text-active: var(--color-primary-400);
+  --color-sidebar-item-hover: var(--color-neutral-900);
+  --color-sidebar-item-active: var(--color-neutral-900);
+
+  --color-header-bg: var(--color-neutral-955, var(--color-neutral-950));
+  --color-header-border: var(--color-neutral-800);
+
+  --color-scrollbar-track: var(--color-neutral-955, var(--color-neutral-950));
+  --color-scrollbar-thumb: var(--color-neutral-800);
+  --color-scrollbar-thumb-hover: var(--color-neutral-700);
+
+  /* Badges - Dark Mode */
+  --color-badge-default-bg: var(--color-neutral-800);
+  --color-badge-default-text: var(--color-neutral-200);
+  --color-badge-default-border: var(--color-neutral-700);
+
+  --color-badge-success-bg: rgba(16, 185, 129, 0.15);
+  --color-badge-success-text: var(--color-success-400);
+  --color-badge-success-border: rgba(16, 185, 129, 0.25);
+
+  --color-badge-warning-bg: rgba(245, 158, 11, 0.15);
+  --color-badge-warning-text: var(--color-warning-400);
+  --color-badge-warning-border: rgba(245, 158, 11, 0.25);
+
+  --color-badge-error-bg: rgba(244, 63, 94, 0.15);
+  --color-badge-error-text: var(--color-error-400);
+  --color-badge-error-border: rgba(244, 63, 94, 0.25);
 }
