@@ -1,0 +1,230 @@
+/* =====================================================
+   Button — CSS Module
+   All values reference design tokens via CSS variables.
+   ===================================================== */
+
+.button {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  white-space: nowrap;
+
+  /* Typography */
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wide);
+  text-decoration: none;
+
+  /* Shape */
+  border-radius: var(--radius-md);
+  border: 1.5px solid transparent;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  /* Transitions */
+  transition:
+    background-color var(--transition-base),
+    border-color var(--transition-base),
+    color var(--transition-base),
+    box-shadow var(--transition-base),
+    transform var(--transition-fast),
+    opacity var(--transition-base);
+
+  /* Focus ring */
+  &:focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+  }
+
+  /* Disabled state */
+  &:disabled,
+  &[aria-disabled="true"] {
+    cursor: not-allowed;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  /* Active press effect */
+  &:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+}
+
+/* =====================================================
+   SIZES
+   ===================================================== */
+
+.size-sm {
+  height: 2rem;
+  padding: 0 var(--spacing-3);
+  font-size: var(--font-size-xs);
+  border-radius: var(--radius-sm);
+
+  & .icon {
+    font-size: 0.875em;
+    width: 1em;
+    height: 1em;
+  }
+}
+
+.size-md {
+  height: 2.5rem;
+  padding: 0 var(--spacing-4);
+  font-size: var(--font-size-sm);
+}
+
+.size-lg {
+  height: 3rem;
+  padding: 0 var(--spacing-6);
+  font-size: var(--font-size-md);
+  border-radius: var(--radius-lg);
+}
+
+/* =====================================================
+   VARIANTS
+   ===================================================== */
+
+/* Primary */
+.variant-primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+  box-shadow: var(--shadow-xs);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    box-shadow: var(--shadow-sm);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--color-primary-active);
+    border-color: var(--color-primary-active);
+    box-shadow: var(--shadow-xs);
+  }
+}
+
+/* Secondary */
+.variant-secondary {
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: var(--color-secondary-foreground);
+  box-shadow: var(--shadow-xs);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-secondary-hover);
+    border-color: var(--color-secondary-hover);
+    box-shadow: var(--shadow-sm);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--color-secondary-active);
+    border-color: var(--color-secondary-active);
+  }
+}
+
+/* Ghost */
+.variant-ghost {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--color-text);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-bg-subtle);
+    border-color: var(--color-border);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--color-border);
+  }
+}
+
+/* Outline */
+.variant-outline {
+  background-color: transparent;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-primary-subtle);
+    border-color: var(--color-primary-hover);
+    color: var(--color-primary-hover);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--color-primary-subtle);
+  }
+}
+
+/* Danger */
+.variant-danger {
+  background-color: var(--color-error);
+  border-color: var(--color-error);
+  color: var(--color-error-foreground);
+  box-shadow: var(--shadow-xs);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-error-hover);
+    border-color: var(--color-error-hover);
+    box-shadow: var(--shadow-sm);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--color-error-hover);
+    border-color: var(--color-error-hover);
+  }
+}
+
+/* =====================================================
+   MODIFIERS
+   ===================================================== */
+
+.fullWidth {
+  width: 100%;
+}
+
+/* =====================================================
+   INTERNAL ELEMENTS
+   ===================================================== */
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Loading state */
+.loading {
+  cursor: wait;
+}
+
+.spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.125em;
+  height: 1.125em;
+  animation: spin 0.75s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

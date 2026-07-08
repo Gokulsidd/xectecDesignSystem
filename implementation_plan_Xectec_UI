@@ -1,0 +1,196 @@
+# Xectec Design System — Implementation Plan
+
+## Overview
+
+Build a centralized, enterprise-grade, reusable UI component library (`@xectec/ui`) as a **monorepo** with:
+- Design tokens (CSS Variables)
+- React component library
+- Storybook documentation
+- Vite library-mode build
+- Next.js integration validation
+
+---
+
+## Architecture Decisions
+
+> [!IMPORTANT]
+> **My proposed approach vs. the plan document:**
+> The plan document is high-level. Below are specific technical decisions I'll make that you should review before I proceed.
+
+| Decision | Plan Says | My Proposal |
+|---|---|---|
+| **Monorepo tool** | Just says "packages/" folder | **pnpm workspaces** (fastest, no node_modules duplication, great for monorepos) |
+| **Package scope** | `@company/ui` | **`@xectec/ui`** (your company name) |
+| **Token format** | CSS variables | CSS variables **+ a typed JS/TS token object** so apps can use tokens in JS too |
+| **Testing** | Unit tests required | **Vitest** (native Vite integration, much faster than Jest) |
+| **Dark mode** | Future scalability | **Built-in from Day 1** via CSS variable token swap — costs nothing to set up now |
+| **Accessibility** | Mentioned | Radix UI primitives under the hood for Modal (focus trap, ARIA) — components remain fully styled by us |
+
+---
+
+## Open Questions
+
+> [!IMPORTANT]
+> **Please confirm before I proceed:**
+> 1. **Package scope name** — Should I use `@xectec/ui` or something else?
+> 2. **Monorepo tool** — `pnpm` workspaces (recommended) or `npm` workspaces?
+> 3. **Dark mode** — Include dark mode token layer from Day 1 (adds ~30 min effort but saves a major refactor later)?
+> 4. **Integration target** — Do you have an existing Next.js app path I should target for Day 5 integration, or should I create a demo app inside the monorepo?
+
+---
+
+## Proposed Folder Structure
+
+```
+xectecDesignSystem/               ← existing directory (workspace root)
+├── package.json                  ← pnpm workspace root
+├── pnpm-workspace.yaml
+├── turbo.json                    ← Turborepo for caching builds
+├── packages/
+│   ├── tokens/                   ← @xectec/tokens
+│   │   ├── src/
+│   │   │   ├── tokens.css        ← CSS variable definitions
+│   │   │   ├── tokens.ts         ← Typed JS token object
+│   │   │   └── index.ts
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   └── ui/                       ← @xectec/ui
+│       ├── src/
+│       │   ├── components/
+│       │   │   ├── Button/
+│       │   │   │   ├── Button.tsx
+│       │   │   │   ├── Button.stories.tsx
+│       │   │   │   ├── Button.test.tsx
+│       │   │   │   └── index.ts
+│       │   │   ├── Input/
+│       │   │   ├── Modal/
+│       │   │   ├── Toast/
+│       │   │   └── Card/
+│       │   └── index.ts
+│       ├── package.json
+│       ├── vite.config.ts        ← library mode build
+│       └── tsconfig.json
+└── apps/
+    ├── storybook/                ← Storybook app
+    │   ├── .storybook/
+    │   └── package.json
+    └── demo-next/                ← Next.js integration demo
+        └── package.json
+```
+
+---
+
+## Proposed Changes
+
+### Phase 1: Repository Foundation (Day 1)
+
+#### [NEW] Root `package.json` — pnpm workspace root
+#### [NEW] `pnpm-workspace.yaml` — defines packages/* and apps/* as workspaces
+#### [NEW] `turbo.json` — Turborepo pipeline for build/test/lint caching
+#### [NEW] `tsconfig.base.json` — shared TypeScript config
+#### [NEW] `.eslintrc.js` — shared ESLint config
+
+---
+
+### Phase 2: Design Tokens Package (Day 1)
+
+#### [NEW] `packages/tokens/src/tokens.css`
+All tokens exposed as CSS custom properties:
+- `--color-primary-*`, `--color-secondary-*`, `--color-success-*`, `--color-warning-*`, `--color-error-*`, `--color-neutral-*`
+- `--font-family-*`, `--font-size-*`, `--font-weight-*`, `--line-height-*`
+- `--spacing-xs/sm/md/lg/xl`
+- `--radius-sm/md/lg/full`
+- `--shadow-sm/md/lg`
+- Dark mode variant via `[data-theme="dark"]` selector
+
+#### [NEW] `packages/tokens/src/tokens.ts` — typed JS token object mirroring CSS vars
+
+---
+
+### Phase 3: UI Component Library (Day 2–3)
+
+#### [NEW] `packages/ui/vite.config.ts` — library mode, dual CJS+ESM output
+#### [NEW] `packages/ui/src/components/Button/` — full Button component
+  - Variants: `primary | secondary | ghost | danger`
+  - Sizes: `sm | md | lg`
+  - States: loading spinner, disabled, icon support
+  - ARIA: `role="button"`, keyboard nav
+
+#### [NEW] `packages/ui/src/components/Input/` — Input component
+  - Label, helper text, error message
+  - Validation states: default, success, error
+  - Disabled state
+
+#### [NEW] `packages/ui/src/components/Modal/` — Modal component
+  - Uses Radix UI Dialog primitive (focus trap + ARIA out of the box)
+  - Header / Body / Footer slots
+  - Backdrop click to close
+
+#### [NEW] `packages/ui/src/components/Toast/` — Toast notification
+  - Uses Radix UI Toast primitive
+  - Variants: success, error, warning, info
+  - Auto-dismiss with progress bar
+
+#### [NEW] `packages/ui/src/components/Card/` — Card component
+  - Elevation variants via shadow tokens
+  - Header/body/footer layout
+
+---
+
+### Phase 4: Storybook (Day 2)
+
+#### [NEW] `apps/storybook/.storybook/main.ts` — Storybook 8 with Vite builder
+#### [NEW] Stories for all 5 components with:
+  - Default story
+  - All variants
+  - All states
+  - Usage guidelines via MDX docs
+
+---
+
+### Phase 5: Package Build & Publishing (Day 4)
+
+#### [NEW] `packages/ui/vite.config.ts` — builds dual ESM+CJS output
+#### [NEW] `packages/tokens/package.json` — `exports` field for CSS and JS
+#### Outputs:
+  - `dist/index.js` (ESM)
+  - `dist/index.cjs` (CJS)
+  - `dist/index.d.ts` (TypeScript declarations)
+
+---
+
+### Phase 6: Next.js Integration Demo (Day 5)
+
+#### [NEW] `apps/demo-next/` — Next.js 14 App Router demo
+  - Installs `@xectec/ui` and `@xectec/tokens` via workspace link
+  - Demo page showing all components
+  - Validates: component rendering, theming, CSS loading, TypeScript support
+
+---
+
+## Verification Plan
+
+### Automated Tests
+```bash
+pnpm --filter @xectec/ui test          # Vitest unit tests
+pnpm --filter @xectec/ui build         # Vite library build
+pnpm --filter storybook build-storybook  # Storybook static build
+```
+
+### Manual Verification
+- Storybook running locally showing all components with all variants
+- Next.js demo app importing and rendering components correctly
+- TypeScript autocomplete working in consuming app
+- Dark mode toggle working via `data-theme="dark"` on `<html>`
+
+---
+
+## Implementation Order
+
+| Day | Tasks |
+|-----|-------|
+| Day 1 | Monorepo setup, pnpm/turbo, tsconfig, tokens package |
+| Day 2 | Storybook setup, Button component |
+| Day 3 | Input, Modal, Toast, Card components |
+| Day 4 | Vite library build, package exports config |
+| Day 5 | Next.js demo app, integration validation |

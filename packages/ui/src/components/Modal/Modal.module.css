@@ -1,0 +1,161 @@
+/* =====================================================
+   Modal — CSS Module
+   ===================================================== */
+
+/* Overlay (backdrop) */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-bg-overlay);
+  z-index: var(--z-index-overlay);
+  backdrop-filter: blur(2px);
+
+  /* Animation */
+  animation: overlayShow 150ms ease forwards;
+}
+
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Dialog panel */
+.panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: var(--z-index-modal);
+
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-2xl);
+
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - var(--spacing-16));
+  width: calc(100vw - var(--spacing-8));
+
+  /* Focus ring */
+  &:focus {
+    outline: none;
+  }
+
+  /* Animation */
+  animation: panelShow 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes panelShow {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Sizes */
+.size-sm {
+  max-width: 24rem;
+}
+.size-md {
+  max-width: 32rem;
+}
+.size-lg {
+  max-width: 48rem;
+}
+.size-xl {
+  max-width: 64rem;
+}
+.size-full {
+  max-width: calc(100vw - var(--spacing-8));
+  max-height: calc(100vh - var(--spacing-8));
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+  padding: var(--spacing-5) var(--spacing-6);
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.title {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  line-height: var(--line-height-tight);
+  margin: 0;
+}
+
+/* Close button */
+.closeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-md);
+  border: none;
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base);
+
+  &:hover {
+    background-color: var(--color-bg-subtle);
+    color: var(--color-text);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+  }
+}
+
+/* Description */
+.description {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  padding: var(--spacing-3) var(--spacing-6) 0;
+  margin: 0;
+  line-height: var(--line-height-relaxed);
+  flex-shrink: 0;
+}
+
+/* Body */
+.body {
+  padding: var(--spacing-6);
+  overflow-y: auto;
+  flex: 1;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--spacing-3);
+  padding: var(--spacing-4) var(--spacing-6);
+  border-top: 1px solid var(--color-border);
+  flex-shrink: 0;
+}

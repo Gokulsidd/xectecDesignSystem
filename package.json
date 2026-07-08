@@ -1,0 +1,31 @@
+{
+  "name": "xectec-design-system",
+  "private": true,
+  "description": "Xectec company-wide design system monorepo",
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "test": "turbo test",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,css,md,json}\"",
+    "storybook": "turbo --filter=storybook dev",
+    "build-storybook": "turbo --filter=storybook build"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.4",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3",
+    "@types/node": "^22.15.29",
+    "eslint": "^9.29.0",
+    "@typescript-eslint/parser": "^8.34.0",
+    "@typescript-eslint/eslint-plugin": "^8.34.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@9.15.4"
+}

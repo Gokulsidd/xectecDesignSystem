@@ -1,0 +1,111 @@
+/* =====================================================
+   Card — CSS Module
+   ===================================================== */
+
+.card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid transparent;
+  overflow: hidden;
+  transition:
+    box-shadow var(--transition-slow),
+    transform var(--transition-slow),
+    border-color var(--transition-base);
+}
+
+/* Elevation variants */
+.elevation-flat {
+  box-shadow: var(--shadow-none);
+}
+
+.elevation-raised {
+  box-shadow: var(--shadow-sm);
+}
+
+.elevation-floating {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Border */
+.bordered {
+  border-color: var(--color-border);
+}
+
+/* Interactive */
+.interactive {
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+    border-color: var(--color-border-strong);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+  }
+}
+
+/* Padding */
+.padding-sm {
+  padding: var(--spacing-3);
+}
+
+.padding-md {
+  padding: var(--spacing-5);
+}
+
+.padding-lg {
+  padding: var(--spacing-8);
+}
+
+/* =====================================================
+   Sub-components
+   When padding is set on Card itself, sub-components
+   inherit the layout. Use without padding for full-bleed.
+   ===================================================== */
+
+/* Reset padding on Card when using sub-components */
+.card:has(.header):not(.padding-sm):not(.padding-md):not(.padding-lg) {
+  padding: 0;
+}
+
+.header {
+  padding: var(--spacing-5) var(--spacing-6);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+
+  & h1, & h2, & h3, & h4, & h5, & h6 {
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    margin: 0;
+    line-height: var(--line-height-tight);
+  }
+}
+
+.body {
+  padding: var(--spacing-5) var(--spacing-6);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+.footer {
+  padding: var(--spacing-4) var(--spacing-6);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--spacing-3);
+}

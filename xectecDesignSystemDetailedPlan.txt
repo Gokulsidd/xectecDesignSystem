@@ -1,0 +1,159 @@
+
+Design System Implementation Prompt for AI Agent
+Role:
+You are an expert Enterprise Frontend Architect. Help implement a scalable company-wide Design
+System that supports multiple frontend applications built with React, Vite React, and Next.js.
+Objective:
+Create a centralized reusable UI platform that provides consistent design, components, tokens,
+documentation, and development standards.
+Implementation Strategy:
+Phase 1: Repository Foundation
+Create a new repository:
+company-design-system
+Recommended stack:
+- React
+- TypeScript
+- Tailwind CSS
+- CSS Variables
+- Storybook
+- Vite Library Mode
+- npm private package publishing
+Folder structure:
+company-design-system
+packages/
+tokens/
+ui/
+apps/
+storybook/
+Design Tokens:
+First implement the token system.
+Create tokens for:
+1. Colors
+- Primary
+- Secondary
+- Success
+- Warning
+- Error
+- Neutral colors
+2. Typography
+- Font families
+- Font sizes
+- Font weights
+- Line heights
+3. Spacing
+- xs
+- sm
+- md
+- lg
+- xl
+4. Radius
+- small
+- medium
+- large
+5. Shadows
+- elevation levels
+Tokens should be exposed as CSS variables.
+Example:
+--color-primary
+--spacing-md
+--radius-md
+Component Library:
+Create reusable React components.
+Initial priority:
+1. Button
+Requirements:
+- Variants
+- Sizes
+- Loading state
+- Disabled state
+- Accessibility
+2. Input
+Requirements:
+- Label
+- Error message
+- Validation state
+- Disabled state
+3. Modal
+Requirements:
+- Open/close handling
+- Header/body/footer
+- Accessibility support
+4. Toast notification
+5. Card component
+Component Rules:
+Every component must have:
+- TypeScript types
+- Unit tests
+- Storybook documentation
+- Accessibility support
+- Responsive support
+- Token based styling
+- Clear API design
+Storybook Setup:
+Configure Storybook as the central documentation platform.
+Every component should include:
+- Default example
+- Variants
+- States
+- Usage guidelines
+Package Configuration:
+Build the UI library as:
+@company/ui
+Applications should consume:
+import { Button } from '@company/ui'
+Integration Target:
+First integrate with a Next.js application.
+Validate:
+- Installation
+- Component rendering
+- Theme support
+- CSS loading
+- TypeScript support
+Development Workflow:
+Follow this workflow:
+Developer Request
+|
+Check Existing Components
+|
+Reuse Existing Component
+|
+Create New Component If Needed
+|
+Add Storybook Documentation
+|
+Code Review
+|
+Release Package
+Quality Standards:
+Enforce:
+- No hardcoded colors
+- No duplicate components
+- No inline random spacing values
+- Accessibility compliance
+- Consistent naming conventions
+Future Scalability:
+Design should support:
+- Multiple themes
+- Dark mode
+- Multiple products
+- Figma token integration
+- Automated releases
+- Visual regression testing
+- AI assisted component generation
+Implementation Order:
+Day 1:
+- Repository setup
+- Tooling setup
+- Token architecture
+Day 2:
+- Storybook setup
+- Button component
+Day 3:
+- Input, Modal, Toast
+Day 4:
+- Package build configuration
+Day 5:
+- Next.js integration and validation
+Important:
+Do not create unnecessary complexity initially. Build a clean foundation that can grow into an
+enterprise design system.
