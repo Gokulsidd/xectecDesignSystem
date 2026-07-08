@@ -17,7 +17,7 @@ export interface ModalProps {
   /** Visually hide the title (still read by screen readers) */
   hideTitle?: boolean;
   /** Modal description (optional) */
-  description?: string;
+  description?: string | undefined;
   /** Size of the modal dialog */
   size?: ModalSize;
   /** Footer slot — typically contains action buttons */

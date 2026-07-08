@@ -1,6 +1,7 @@
 {
   "name": "xectec-design-system",
   "private": true,
+  "type": "module",
   "description": "Xectec company-wide design system monorepo",
   "scripts": {
     "build": "turbo build",

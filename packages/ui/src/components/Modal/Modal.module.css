@@ -85,8 +85,7 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--spacing-4);
-  padding: var(--spacing-5) var(--spacing-6);
-  border-bottom: 1px solid var(--color-border);
+  padding: var(--spacing-6) var(--spacing-6) var(--spacing-2);
   flex-shrink: 0;
 }
 
@@ -101,24 +100,30 @@
 
 /* Close button */
 .closeButton {
+  position: absolute;
+  right: 1.25rem;
+  top: 1.25rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  border-radius: var(--radius-md);
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: var(--radius-sm);
   border: none;
   background: transparent;
   color: var(--color-text-secondary);
   cursor: pointer;
   flex-shrink: 0;
+  opacity: 0.7;
   transition:
     background-color var(--transition-base),
-    color var(--transition-base);
+    color var(--transition-base),
+    opacity var(--transition-base);
 
   &:hover {
     background-color: var(--color-bg-subtle);
     color: var(--color-text);
+    opacity: 1;
   }
 
   &:focus-visible {
@@ -132,7 +137,7 @@
   font-family: var(--font-family-sans);
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
-  padding: var(--spacing-3) var(--spacing-6) 0;
+  padding: 0 var(--spacing-6) var(--spacing-2);
   margin: 0;
   line-height: var(--line-height-relaxed);
   flex-shrink: 0;
@@ -140,7 +145,7 @@
 
 /* Body */
 .body {
-  padding: var(--spacing-6);
+  padding: var(--spacing-4) var(--spacing-6) var(--spacing-6);
   overflow-y: auto;
   flex: 1;
   font-family: var(--font-family-sans);
@@ -149,13 +154,17 @@
   line-height: var(--line-height-relaxed);
 }
 
+/* Panel has-footer custom padding adjustment: when footer is present, reduce body padding bottom */
+.panel:has(.footer) .body {
+  padding-bottom: var(--spacing-4);
+}
+
 /* Footer */
 .footer {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: var(--spacing-3);
-  padding: var(--spacing-4) var(--spacing-6);
-  border-top: 1px solid var(--color-border);
+  padding: 0 var(--spacing-6) var(--spacing-6);
   flex-shrink: 0;
 }

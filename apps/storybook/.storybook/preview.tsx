@@ -12,17 +12,31 @@ const preview: Preview = {
       },
     },
     backgrounds: {
-      default: "light",
-      values: [
-        {
-          name: "light",
-          value: "#f8fafc",
+      disable: true,
+    },
+    viewport: {
+      viewports: {
+        mobile: {
+          name: "Mobile (iPhone SE)",
+          styles: { width: "375px", height: "667px" },
+          type: "mobile",
         },
-        {
-          name: "dark",
-          value: "#020617",
+        tablet: {
+          name: "Tablet (iPad)",
+          styles: { width: "768px", height: "1024px" },
+          type: "tablet",
         },
-      ],
+        laptop: {
+          name: "Laptop (Small screen)",
+          styles: { width: "1024px", height: "768px" },
+          type: "desktop",
+        },
+        desktop: {
+          name: "Desktop (Large screen)",
+          styles: { width: "1440px", height: "900px" },
+          type: "desktop",
+        },
+      },
     },
   },
   globalTypes: {
@@ -48,8 +62,7 @@ const preview: Preview = {
       // Apply data-theme to the html element for CSS variable switching
       if (typeof document !== "undefined") {
         document.documentElement.setAttribute("data-theme", theme);
-        document.body.style.backgroundColor =
-          theme === "dark" ? "var(--color-bg)" : "var(--color-bg)";
+        document.body.style.backgroundColor = "var(--color-bg)";
       }
 
       return (

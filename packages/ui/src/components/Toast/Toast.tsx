@@ -80,7 +80,7 @@ export function ToastProvider({ children, maxVisible = 5 }: ToastProviderProps) 
 
         {/* Render active toasts */}
         {toasts.map((item) => (
-          <ToastItem key={item.id} item={item} onDismiss={() => dismiss(item.id)} />
+          <ToastItemInner key={item.id} item={item} onDismiss={() => dismiss(item.id)} />
         ))}
 
         {/* Viewport — where toasts are mounted in the DOM */}
@@ -148,7 +148,7 @@ interface ToastItemProps {
   onDismiss: () => void;
 }
 
-function ToastItem({ item, onDismiss }: ToastItemProps) {
+function ToastItemInner({ item, onDismiss }: ToastItemProps) {
   const { variant, title, description, duration = 5000 } = item;
 
   return (

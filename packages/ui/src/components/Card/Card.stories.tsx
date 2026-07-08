@@ -94,7 +94,7 @@ export const Interactive: Story = {
           <Card.Header>
             <h3>{name}</h3>
           </Card.Header>
-          <Card.Body>Click me — I'm interactive with hover effects.</Card.Body>
+          <Card.Body>Click me — I&apos;m interactive with hover effects.</Card.Body>
         </Card>
       ))}
     </div>

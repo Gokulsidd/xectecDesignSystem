@@ -8,8 +8,7 @@
   border: 1px solid transparent;
   overflow: hidden;
   transition:
-    box-shadow var(--transition-slow),
-    transform var(--transition-slow),
+    box-shadow var(--transition-base),
     border-color var(--transition-base);
 }
 
@@ -36,14 +35,7 @@
   cursor: pointer;
 
   &:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-1px);
     border-color: var(--color-border-strong);
-  }
-
-  &:active {
-    transform: translateY(0);
-    box-shadow: var(--shadow-sm);
   }
 
   &:focus-visible {
@@ -58,7 +50,7 @@
 }
 
 .padding-md {
-  padding: var(--spacing-5);
+  padding: var(--spacing-6);
 }
 
 .padding-lg {
@@ -77,8 +69,7 @@
 }
 
 .header {
-  padding: var(--spacing-5) var(--spacing-6);
-  border-bottom: 1px solid var(--color-border);
+  padding: var(--spacing-6) var(--spacing-6) var(--spacing-2);
   display: flex;
   align-items: center;
   gap: var(--spacing-3);
@@ -94,7 +85,7 @@
 }
 
 .body {
-  padding: var(--spacing-5) var(--spacing-6);
+  padding: var(--spacing-4) var(--spacing-6);
   font-family: var(--font-family-sans);
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
@@ -102,8 +93,7 @@
 }
 
 .footer {
-  padding: var(--spacing-4) var(--spacing-6);
-  border-top: 1px solid var(--color-border);
+  padding: var(--spacing-2) var(--spacing-6) var(--spacing-6);
   display: flex;
   align-items: center;
   justify-content: flex-end;

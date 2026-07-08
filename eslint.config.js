@@ -33,6 +33,9 @@ export default [
       ...tsPlugin.configs.recommended.rules,
       "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
       "@typescript-eslint/consistent-type-imports": "error",
+      "no-undef": "off",
+      "no-redeclare": "off",
+      "@typescript-eslint/no-redeclare": "error",
 
       // React
       ...reactPlugin.configs.recommended.rules,

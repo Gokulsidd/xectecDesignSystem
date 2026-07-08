@@ -14,12 +14,14 @@
   /* Typography */
   font-family: var(--font-family-sans);
   font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  line-height: 1;
   letter-spacing: var(--letter-spacing-wide);
   text-decoration: none;
 
   /* Shape */
-  border-radius: var(--radius-md);
-  border: 1.5px solid transparent;
+  border-radius: var(--radius-full);
+  border: 1px solid transparent;
   outline: none;
   cursor: pointer;
   position: relative;
@@ -31,7 +33,6 @@
     border-color var(--transition-base),
     color var(--transition-base),
     box-shadow var(--transition-base),
-    transform var(--transition-fast),
     opacity var(--transition-base);
 
   /* Focus ring */
@@ -47,11 +48,6 @@
     opacity: 0.5;
     pointer-events: none;
   }
-
-  /* Active press effect */
-  &:active:not(:disabled) {
-    transform: translateY(1px);
-  }
 }
 
 /* =====================================================
@@ -59,10 +55,9 @@
    ===================================================== */
 
 .size-sm {
-  height: 2rem;
+  height: 1.8rem;
   padding: 0 var(--spacing-3);
   font-size: var(--font-size-xs);
-  border-radius: var(--radius-sm);
 
   & .icon {
     font-size: 0.875em;
@@ -72,16 +67,15 @@
 }
 
 .size-md {
-  height: 2.5rem;
+  height: 2rem;
   padding: 0 var(--spacing-4);
   font-size: var(--font-size-sm);
 }
 
 .size-lg {
-  height: 3rem;
+  height: 2.5rem;
   padding: 0 var(--spacing-6);
   font-size: var(--font-size-md);
-  border-radius: var(--radius-lg);
 }
 
 /* =====================================================

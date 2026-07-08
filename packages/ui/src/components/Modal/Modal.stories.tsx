@@ -37,8 +37,8 @@ function ModalDemo({
         open={open}
         onClose={() => setOpen(false)}
         title={title}
-        description={description}
         size={size}
+        {...(description ? { description } : {})}
         footer={
           <>
             <Button variant="ghost" onClick={() => setOpen(false)}>
