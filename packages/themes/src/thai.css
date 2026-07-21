@@ -1,0 +1,103 @@
+/**
+ * @xectec/themes — Thai Client Theme
+ *
+ * Primary brand: Deep Violet-Purple
+ * Identity: Vibrant, modern, energetic, innovative
+ *
+ * Usage:
+ *   import '@xectec/tokens/tokens.css';  // 1. Base tokens (must come first)
+ *   import '@xectec/themes/thai.css';    // 2. Thai overrides
+ *
+ * This file overrides ONLY the primary color palette and semantic primary
+ * aliases. All other tokens (spacing, typography, radius, neutrals) remain
+ * unchanged from @xectec/tokens.
+ */
+
+/* ============================================================
+   THAI — LIGHT MODE
+   ============================================================ */
+:root,
+[data-theme="light"] {
+  /* ----------------------------------------------------------
+     Primary Palette — Violet / Deep Purple
+     Conveys creativity, trust, and innovation.
+     ---------------------------------------------------------- */
+  --color-primary-50:  #f5f3ff;
+  --color-primary-100: #ede9fe;
+  --color-primary-200: #ddd6fe;
+  --color-primary-300: #c4b5fd;
+  --color-primary-400: #a78bfa;
+  --color-primary-500: #7c3aed;
+  --color-primary-600: #6d28d9;
+  --color-primary-700: #5b21b6;
+  --color-primary-800: #4c1d95;
+  --color-primary-900: #3b0764;
+  --color-primary-950: #2e1065;
+
+  /* Semantic primary aliases */
+  --color-primary:             #7c3aed;
+  --color-primary-hover:       #6d28d9;
+  --color-primary-active:      #5b21b6;
+  --color-primary-subtle:      #f5f3ff;
+  --color-primary-foreground:  #ffffff;
+
+  /* Focus ring — violet glow */
+  --color-focus-ring: rgba(124, 58, 237, 0.25);
+
+  /* Input focus border matches primary */
+  --color-input-border-focus:  #7c3aed;
+  --color-input-focus-ring:    rgba(124, 58, 237, 0.12);
+
+  /* Button — primary variant */
+  --color-button-primary-bg:        #7c3aed;
+  --color-button-primary-bg-hover:  #6d28d9;
+  --color-button-primary-bg-active: #5b21b6;
+  --color-button-primary-text:      #ffffff;
+
+  /* Sidebar active indicators */
+  --color-sidebar-text-active:   #7c3aed;
+  --color-sidebar-item-active:   #f5f3ff;
+}
+
+/* ============================================================
+   THAI — DARK MODE
+   On dark backgrounds, use lighter violet tones for contrast.
+   ============================================================ */
+[data-theme="dark"] {
+  /* Primary Palette — Lighter violet for dark mode */
+  --color-primary-50:  #2e1065;
+  --color-primary-100: #3b0764;
+  --color-primary-200: #4c1d95;
+  --color-primary-300: #5b21b6;
+  --color-primary-400: #6d28d9;
+  --color-primary-500: #7c3aed;
+  --color-primary-600: #8b5cf6;
+  --color-primary-700: #a78bfa;
+  --color-primary-800: #c4b5fd;
+  --color-primary-900: #ddd6fe;
+  --color-primary-950: #ede9fe;
+
+  /* Semantic primary aliases — medium-light violet for dark bg */
+  --color-primary:             #8b5cf6;
+  --color-primary-hover:       #a78bfa;
+  --color-primary-active:      #c4b5fd;
+  --color-primary-subtle:      rgba(139, 92, 246, 0.1);
+  --color-primary-foreground:  #1e0a3c;
+
+  /* Focus ring — glowing violet */
+  --color-focus-ring: rgba(139, 92, 246, 0.35);
+
+  /* Input focus border */
+  --color-input-border-focus:  #7c3aed;
+  --color-input-focus-ring:    rgba(139, 92, 246, 0.15);
+
+  /* Button — primary variant dark */
+  --color-button-primary-bg:        #7c3aed;
+  --color-button-primary-bg-hover:  #8b5cf6;
+  --color-button-primary-bg-active: #a78bfa;
+  --color-button-primary-text:      #ffffff;
+
+  /* Sidebar */
+  --color-sidebar-text-active:   #8b5cf6;
+  --color-sidebar-item-active:   rgba(139, 92, 246, 0.08);
+}

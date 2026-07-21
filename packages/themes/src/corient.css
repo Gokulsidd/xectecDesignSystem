@@ -1,0 +1,104 @@
+/**
+ * @xectec/themes — Corient Client Theme
+ *
+ * Primary brand: Deep Charcoal-Black
+ * Identity: Corporate, formal, authoritative
+ *
+ * Usage:
+ *   import '@xectec/tokens/tokens.css';   // 1. Base tokens (must come first)
+ *   import '@xectec/themes/corient.css';   // 2. Corient overrides
+ *
+ * This file overrides ONLY the primary color palette and semantic primary
+ * aliases. All other tokens (spacing, typography, radius, neutrals) remain
+ * unchanged from @xectec/tokens.
+ */
+
+/* ============================================================
+   CORIENT — LIGHT MODE
+   ============================================================ */
+:root,
+[data-theme="light"] {
+  /* ----------------------------------------------------------
+     Primary Palette — Deep Charcoal / Off-Black
+     Conveys authority, elegance, and corporate gravity.
+     ---------------------------------------------------------- */
+  --color-primary-50:  #f4f4f5;
+  --color-primary-100: #e4e4e7;
+  --color-primary-200: #d1d1d6;
+  --color-primary-300: #a1a1aa;
+  --color-primary-400: #71717a;
+  --color-primary-500: #3f3f46;
+  --color-primary-600: #27272a;
+  --color-primary-700: #18181b;
+  --color-primary-800: #09090b;
+  --color-primary-900: #050505;
+  --color-primary-950: #020202;
+
+  /* Semantic primary aliases */
+  --color-primary:             #27272a;
+  --color-primary-hover:       #18181b;
+  --color-primary-active:      #09090b;
+  --color-primary-subtle:      #f4f4f5;
+  --color-primary-foreground:  #ffffff;
+
+  /* Focus ring — soft charcoal glow */
+  --color-focus-ring: rgba(39, 39, 42, 0.25);
+
+  /* Input focus border matches primary */
+  --color-input-border-focus:  #3f3f46;
+  --color-input-focus-ring:    rgba(39, 39, 42, 0.12);
+
+  /* Button — primary variant */
+  --color-button-primary-bg:        #27272a;
+  --color-button-primary-bg-hover:  #18181b;
+  --color-button-primary-bg-active: #09090b;
+  --color-button-primary-text:      #ffffff;
+
+  /* Sidebar active indicators */
+  --color-sidebar-text-active:   #27272a;
+  --color-sidebar-item-active:   #f4f4f5;
+}
+
+/* ============================================================
+   CORIENT — DARK MODE
+   On dark backgrounds, use a lighter zinc/silver to maintain
+   contrast and legibility.
+   ============================================================ */
+[data-theme="dark"] {
+  /* Primary Palette — Light Zinc on dark backgrounds */
+  --color-primary-50:  #020202;
+  --color-primary-100: #09090b;
+  --color-primary-200: #18181b;
+  --color-primary-300: #27272a;
+  --color-primary-400: #3f3f46;
+  --color-primary-500: #71717a;
+  --color-primary-600: #a1a1aa;
+  --color-primary-700: #d1d1d6;
+  --color-primary-800: #e4e4e7;
+  --color-primary-900: #f4f4f5;
+  --color-primary-950: #fafafa;
+
+  /* Semantic primary aliases — light zinc for dark mode */
+  --color-primary:             #a1a1aa;
+  --color-primary-hover:       #d1d1d6;
+  --color-primary-active:      #e4e4e7;
+  --color-primary-subtle:      rgba(161, 161, 170, 0.1);
+  --color-primary-foreground:  #09090b;
+
+  /* Focus ring — subtle silver glow */
+  --color-focus-ring: rgba(161, 161, 170, 0.3);
+
+  /* Input focus border */
+  --color-input-border-focus:  #71717a;
+  --color-input-focus-ring:    rgba(161, 161, 170, 0.15);
+
+  /* Button — primary variant dark */
+  --color-button-primary-bg:        #a1a1aa;
+  --color-button-primary-bg-hover:  #d1d1d6;
+  --color-button-primary-bg-active: #e4e4e7;
+  --color-button-primary-text:      #09090b;
+
+  /* Sidebar */
+  --color-sidebar-text-active:   #a1a1aa;
+  --color-sidebar-item-active:   rgba(161, 161, 170, 0.08);
+}

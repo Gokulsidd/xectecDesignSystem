@@ -41,6 +41,9 @@ importers:
 
   apps/storybook:
     dependencies:
+      '@xectec/themes':
+        specifier: workspace:*
+        version: link:../../packages/themes
       '@xectec/tokens':
         specifier: workspace:*
         version: link:../../packages/tokens
@@ -90,6 +93,8 @@ importers:
       vite:
         specifier: ^6.3.5
         version: 6.4.3(@types/node@22.20.0)
+
+  packages/themes: {}
 
   packages/tokens:
     devDependencies:

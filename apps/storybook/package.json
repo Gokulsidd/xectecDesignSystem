@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@xectec/tokens": "workspace:*",
+    "@xectec/themes": "workspace:*",
     "@xectec/ui": "workspace:*",
     "storybook": "8.6.18"
   },

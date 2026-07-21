@@ -1,0 +1,15 @@
+{
+  "name": "@xectec/themes",
+  "version": "0.1.0",
+  "description": "Client-specific CSS color theme overrides for the Xectec Design System. Import one CSS file to apply a client's branding across all @xectec/ui components.",
+  "license": "UNLICENSED",
+  "private": false,
+  "exports": {
+    "./corient.css": "./src/corient.css",
+    "./thai.css": "./src/thai.css"
+  },
+  "files": ["src"],
+  "scripts": {
+    "lint": "echo 'CSS-only package — no lint needed'"
+  }
+}

@@ -1,7 +1,46 @@
 import type { Preview } from "@storybook/react";
 
-// Import design tokens CSS — this applies all CSS variables globally
+// Import base design tokens CSS — this applies all CSS variables globally
 import "@xectec/tokens/tokens.css";
+
+// Import client theme CSS files as raw strings via Vite's ?inline query.
+// This bundles them at build time, so they are always available regardless
+// of how/where Storybook is served.
+// @ts-expect-error — Vite ?inline import, no type declaration needed
+import corientCss from "@xectec/themes/corient.css?inline";
+// @ts-expect-error — Vite ?inline import
+import thaiCss from "@xectec/themes/thai.css?inline";
+
+const CLIENT_CSS: Record<string, string> = {
+  xectec:  "",        // default Xectec/XT — no overrides
+  corient: corientCss as string,
+  thai:    thaiCss    as string,
+};
+
+const STYLE_TAG_ID = "xectec-client-theme";
+
+/** Inject (or remove) the client theme <style> tag. */
+function applyClientTheme(clientId: string): void {
+  if (typeof document === "undefined") return;
+
+  let styleEl = document.getElementById(STYLE_TAG_ID) as HTMLStyleElement | null;
+
+  const css = CLIENT_CSS[clientId] ?? "";
+
+  if (!css) {
+    // Remove any existing override — fall back to default Xectec tokens
+    styleEl?.remove();
+    return;
+  }
+
+  if (!styleEl) {
+    styleEl = document.createElement("style");
+    styleEl.id = STYLE_TAG_ID;
+    document.head.appendChild(styleEl);
+  }
+
+  styleEl.textContent = css;
+}
 
 const preview: Preview = {
   parameters: {
@@ -41,14 +80,29 @@ const preview: Preview = {
   },
   globalTypes: {
     theme: {
-      name: "Theme",
-      description: "Global theme for components",
+      name: "Mode",
+      description: "Light / Dark display mode",
       defaultValue: "light",
       toolbar: {
         icon: "circlehollow",
         items: [
-          { value: "light", icon: "sun", title: "Light" },
-          { value: "dark", icon: "moon", title: "Dark" },
+          { value: "light", icon: "sun",  title: "Light" },
+          { value: "dark",  icon: "moon", title: "Dark"  },
+        ],
+        showName: true,
+        dynamicTitle: true,
+      },
+    },
+    clientTheme: {
+      name: "Client",
+      description: "Active client brand theme (color set)",
+      defaultValue: "xectec",
+      toolbar: {
+        icon: "paintbrush",
+        items: [
+          { value: "xectec",  title: "🔵  Xectec / XT (default)" },
+          { value: "corient", title: "⚫  Corient" },
+          { value: "thai",    title: "🟣  Thai" },
         ],
         showName: true,
         dynamicTitle: true,
@@ -57,13 +111,17 @@ const preview: Preview = {
   },
   decorators: [
     (Story, context) => {
-      const theme = context.globals["theme"] as string ?? "light";
+      const theme       = (context.globals["theme"]       as string) ?? "light";
+      const clientTheme = (context.globals["clientTheme"] as string) ?? "xectec";
 
-      // Apply data-theme to the html element for CSS variable switching
+      // Apply data-theme attribute to <html> for light/dark CSS variable switching
       if (typeof document !== "undefined") {
         document.documentElement.setAttribute("data-theme", theme);
         document.body.style.backgroundColor = "var(--color-bg)";
       }
+
+      // Inject / swap the client theme <style> tag
+      applyClientTheme(clientTheme);
 
       return (
         <div
